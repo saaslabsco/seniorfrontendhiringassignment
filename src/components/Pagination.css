@@ -1,0 +1,64 @@
+/* Pagination Styling */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.page-btn {
+    background-color: #007F65; /* Green buttons */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+.page-btn:hover {
+    background-color: #45a049;
+}
+
+.page-btn.first,
+.page-btn.prev,
+.page-btn.next,
+.page-btn.last {
+    background-color: #cf4406; /* Orange for first, prev, next, last */
+}
+
+.page-btn.active {
+    background-color: #006400; /* Dark green for active page */
+}
+
+.page-btn:disabled {
+    background-color: #666160;
+    cursor: not-allowed;
+}
+
+button.page-btn.first {
+    margin-right: 50px;
+}
+button.page-btn.last {
+    margin-left: 50px;
+}
+
+button.page-btn.prev {
+    background: #3e3e3eab;
+    border: 1px solid #007f65;
+}
+
+button.page-btn.next {
+    background: #3e3e3eab;
+    border: 1px solid #007f65;
+}
+
+/* Ellipsis Styling */
+.ellipsis {
+    font-size: 1rem;
+    color: #007F65;
+    padding: 10px;
+}
