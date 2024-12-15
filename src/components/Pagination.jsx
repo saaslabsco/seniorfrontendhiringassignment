@@ -11,14 +11,12 @@ const Pagination = () => {
 
     return (
         <div className="pagination">
-            {/* First Page Button */}
             {currentPage !== 1 && (
                 <button className="page-btn first" onClick={() => changePage(1)}>
                     First
                 </button>
             )}
 
-            {/* Prev Button */}
             {currentPage > 1 && (
                 <button
                     className="page-btn prev"
@@ -28,7 +26,6 @@ const Pagination = () => {
                 </button>
             )}
 
-            {/* Pagination Buttons */}
             {generatePagination().map((item, index) =>
                 item === "..." ? (
                     <span key={index} className="ellipsis">...</span>
@@ -43,7 +40,6 @@ const Pagination = () => {
                 )
             )}
 
-            {/* Next Button */}
             {currentPage < totalPages && (
                 <button
                     className="page-btn next"
@@ -53,7 +49,6 @@ const Pagination = () => {
                 </button>
             )}
 
-            {/* Last Page Button */}
             {currentPage !== totalPages && (
                 <button
                     className="page-btn last"

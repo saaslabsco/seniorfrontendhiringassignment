@@ -1,4 +1,3 @@
-/* Pagination Styling */
 .pagination {
     display: flex;
     justify-content: center;
@@ -8,7 +7,7 @@
 }
 
 .page-btn {
-    background-color: #007F65; /* Green buttons */
+    background-color: #007F65;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -27,11 +26,11 @@
 .page-btn.prev,
 .page-btn.next,
 .page-btn.last {
-    background-color: #cf4406; /* Orange for first, prev, next, last */
+    background-color: #cf4406;
 }
 
 .page-btn.active {
-    background-color: #006400; /* Dark green for active page */
+    background-color: #006400;
 }
 
 .page-btn:disabled {
@@ -55,8 +54,6 @@ button.page-btn.next {
     background: #3e3e3eab;
     border: 1px solid #007f65;
 }
-
-/* Ellipsis Styling */
 .ellipsis {
     font-size: 1rem;
     color: #007F65;

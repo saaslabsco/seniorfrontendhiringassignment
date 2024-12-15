@@ -4,10 +4,10 @@ import Table from "../components/Table"
 
 const Catalog = () => {
     return(
-        <>
-        <Table />
-        <Pagination />
-        </>
+        <div className="catalog-wrapper">
+            <Table />
+            <Pagination />
+        </div>
     )
 }
 

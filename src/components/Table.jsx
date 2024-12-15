@@ -6,12 +6,12 @@ const Table = () => {
     const { loading, error, currentRows } = useSaasLabsContext();
 
     return (
-        <>
-            <h2>Catalog</h2>
+        <div className='table-wrapper'>
+            <h2 className='glow'>CATALOG</h2>
             {loading ? (
-                <h3>Loading .....</h3>
+                <h3 className='glow loading'>Loading .......</h3>
             ) : error ? (
-                <h3>Error: {error}</h3>
+                <h3 className='glow error'>Error: {error}</h3>
             ) : (
                 <div className="catalog-container">
                     <table className="catalog-table">
@@ -34,7 +34,7 @@ const Table = () => {
                     </table>
                 </div>
             )}
-        </>
+        </div>
     );
 };
 
