@@ -41,3 +41,14 @@
   justify-content: space-around;
   height: 100vh;
 }
+span.disclaimer {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  margin-top: 60px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #363636;
+  padding: 15px;
+  width: 100%;
+  border-radius: 9px;
+}

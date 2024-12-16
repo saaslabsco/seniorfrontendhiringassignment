@@ -7,6 +7,7 @@ const Catalog = () => {
         <div className="catalog-wrapper">
             <Table />
             <Pagination />
+            <span className="disclaimer">Disclaimer: This app is theme based app. To turn on light/dark mode change device theme</span>
         </div>
     )
 }

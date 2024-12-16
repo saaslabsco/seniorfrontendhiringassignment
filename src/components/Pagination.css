@@ -4,6 +4,7 @@
     align-items: center;
     margin: 20px 0;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .page-btn {
