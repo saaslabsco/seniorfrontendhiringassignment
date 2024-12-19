@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Table from "../components/Table/Table";
 import Pagination from "../components/Table/Pagination";
 import { usePagination } from "../hooks/usePagination";
 import { Column, DatasetItem } from "../types/global";
+import "./styles/paginated-table-page.css";
 
 const PaginatedTablePage = () => {
   const apiUrl =
@@ -14,6 +15,15 @@ const PaginatedTablePage = () => {
       apiUrl,
       pageSize,
     });
+
+  const [searchQuery, setSearchQuery] = useState<string>("");
+
+  const filteredData = paginatedData.filter((item) =>
+    Object.values(item)
+      .join(" ")
+      .toLowerCase()
+      .includes(searchQuery.toLowerCase())
+  );
 
   const columns: Column[] = [
     { key: "s.no", label: "S. No" },
@@ -27,11 +37,20 @@ const PaginatedTablePage = () => {
   return (
     <div className="page-container">
       <h1 className="page-title">Frontend Paginated Table</h1>
+      <div className="search-container">
+        <input
+          type="text"
+          className="search-input"
+          placeholder="Search..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
       {loading ? (
         <p className="loading-text">Loading...</p>
       ) : (
         <>
-          <Table columns={columns} data={paginatedData} />
+          <Table columns={columns} data={filteredData} />
           <Pagination
             currentPage={currentPage}
             totalPages={totalPages}
