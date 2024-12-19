@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "esnext",
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"],
+    "moduleResolution": "node",
+    "types": ["react", "react-dom", "@testing-library/react", "jest"]
+  }
+}
