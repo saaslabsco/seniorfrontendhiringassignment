@@ -7,6 +7,7 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "lib": ["dom", "esnext"],
-    "types": ["react", "react-dom"]
+    "moduleResolution": "node",
+    "types": ["react", "react-dom", "@testing-library/react", "jest"]
   }
 }
