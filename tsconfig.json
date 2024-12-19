@@ -5,6 +5,8 @@
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["dom", "esnext"],
+    "types": ["react", "react-dom"]
   }
 }
