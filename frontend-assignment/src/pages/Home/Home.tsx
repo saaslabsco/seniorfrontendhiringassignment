@@ -13,6 +13,7 @@ const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
 
+  // Normalize the data to ensure it is a flat array of Project[]
   const normalizedData: Project[] =
     Array.isArray(data) && Array.isArray(data[0])
       ? (data as Project[][]).flat()
@@ -27,14 +28,17 @@ const Home: React.FC = () => {
   return (
     <div className={styles.container}>
       <h1>Kickstarter Campaign Summary</h1>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
+      {loading && <p aria-live="polite">Loading...</p>}
+      {error && <p aria-live="assertive">Error: {error}</p>}
       {!loading && !error && (
         <>
           <div className={styles.tableContainer}>
             <Table data={currentData} />
           </div>
-          <div className={styles.paginationContainer}>
+          <div
+            className={styles.paginationContainer}
+            aria-label="Pagination controls for navigating pages of Kickstarter campaigns"
+          >
             <Pagination
               currentPage={currentPage}
               totalRecords={normalizedData.length}
