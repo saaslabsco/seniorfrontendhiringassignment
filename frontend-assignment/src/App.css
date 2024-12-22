@@ -1,0 +1,15 @@
+/* Global Root Styling */
+#root {
+  max-width: 1280px; /* Restrict app width for better readability */
+  margin: 0 auto; /* Center the app horizontally */
+  padding: 1rem; /* Add some padding around the app */
+}
+
+/* Global Body Styling */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f9f9; /* Subtle light background */
+  color: #333; /* Dark text for readability */
+  margin: 0;
+  line-height: 1.6;
+}
