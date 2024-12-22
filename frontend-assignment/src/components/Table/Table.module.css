@@ -1,42 +1,68 @@
+/* Table container with clean look */
 .table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1rem 0;
-  font-size: 1rem;
-  text-align: left;
+  font-size: 16px;
+  background: #fff;
+  border-radius: 8px; /* Rounded corners for table */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for table */
+  overflow: hidden;
 }
 
 .table th,
 .table td {
-  padding: 0.8rem 1.2rem;
-  border: 1px solid #ddd;
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
 }
 
 .table th {
-  background-color: #4caf50;
+  background: linear-gradient(to right, #2d9b55, #3dbf77); /* Gradient header */
   color: white;
-  text-transform: uppercase;
   font-weight: bold;
+  cursor: pointer;
+  border-bottom: 2px solid #1e7e34; /* Bolder border at bottom */
+  transition: background-color 0.3s ease;
 }
 
-.table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.table tr:nth-child(odd) {
-  background-color: #ffffff;
+.table th:hover {
+  background-color: #1e7e34; /* Hover effect for headers */
 }
 
 .table tr:hover {
-  background-color: #f1f8f4;
+  background-color: #f7f7f7; /* Hover effect for rows */
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Even row alternate color */
 }
 
 .table td {
-  color: #333;
-  font-weight: 500;
+  font-size: 16px;
+  color: #555; /* Softer text color for readability */
 }
 
-.table th:first-child,
-.table td:first-child {
+.table .noRecords {
   text-align: center;
+  font-style: italic;
+  color: #888;
+}
+
+.sort-icon {
+  margin-left: 8px;
+  font-size: 10px;
+  color: #777;
+}
+
+/* Border and shadow for sorting arrows */
+.table th {
+  position: relative;
+}
+
+.sort-icon.asc,
+.sort-icon.desc {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
 }
