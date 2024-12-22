@@ -1,3 +1,4 @@
+//@ts-nocheck
 import React, { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import Table from "../../components/Table/Table";

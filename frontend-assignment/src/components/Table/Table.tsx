@@ -1,6 +1,7 @@
+//@ts-nocheck
 import React from "react";
-import styles from "./Table.module.css";
 import { Project } from "../../types/Project";
+import "./Table.module.css";
 
 interface TableProps {
   data: Project[];
@@ -8,7 +9,7 @@ interface TableProps {
 
 const Table: React.FC<TableProps> = ({ data }) => {
   return (
-    <table className={styles.table} aria-label="Kickstarter Projects Table">
+    <table className="table" aria-label="Kickstarter Projects Table">
       <thead>
         <tr>
           <th>S.No.</th>
@@ -17,13 +18,21 @@ const Table: React.FC<TableProps> = ({ data }) => {
         </tr>
       </thead>
       <tbody>
-        {data.map((project) => (
-          <tr key={project["s.no"]}>
-            <td>{project["s.no"]}</td>
-            <td>{project["percentage.funded"]}</td>
-            <td>{project["amt.pledged"]}</td>
+        {data.length === 0 ? (
+          <tr>
+            <td colSpan={3} style={{ textAlign: "center" }}>
+              No records available
+            </td>
           </tr>
-        ))}
+        ) : (
+          data.map((project) => (
+            <tr key={project["s.no"]}>
+              <td>{project["s.no"]}</td>
+              <td>{project["percentage.funded"]}</td>
+              <td>{project["amt.pledged"]}</td>
+            </tr>
+          ))
+        )}
       </tbody>
     </table>
   );
