@@ -3,7 +3,6 @@ import { render, waitFor } from "@testing-library/react";
 import Home from "./Home";
 import useFetch from "../../hooks/useFetch";
 
-// Mock useFetch hook
 jest.mock("../../hooks/useFetch", () => ({
   __esModule: true,
   default: jest.fn(),

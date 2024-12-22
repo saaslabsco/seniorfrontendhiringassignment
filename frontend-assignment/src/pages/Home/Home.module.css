@@ -5,20 +5,19 @@
   padding: 2rem;
   max-width: 100%;
   margin: 0 auto;
-  font-family: "Roboto", sans-serif; /* Adding a modern font */
+  font-family: "Roboto", sans-serif;
 }
 
 .tableContainer {
   width: 100%;
   overflow-x: auto;
   margin-bottom: 2rem;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for table container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Container for the pagination */
 .paginationContainer {
-  width: 100%; /* Ensure it takes full width */
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 1rem;

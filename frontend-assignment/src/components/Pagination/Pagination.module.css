@@ -14,14 +14,12 @@
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
 
-/* Active button (selected page) */
 .active {
   background-color: #28a745;
   color: white;
   transform: scale(1.1);
 }
 
-/* Inactive buttons (non-selected) */
 .inactive {
   background-color: white;
   color: #28a745;
@@ -33,7 +31,6 @@
   transform: scale(1.05);
 }
 
-/* Previous and Next buttons */
 .previousNext {
   background-color: #28a745;
   color: white;
@@ -43,7 +40,6 @@
   background-color: #218838;
 }
 
-/* Disabled button styling */
 .button:disabled {
   background-color: #d4d4d4;
   color: #aaa;

@@ -13,13 +13,11 @@ const Home: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
 
-  // Normalize the data to ensure it is a flat array of Project[]
   const normalizedData: Project[] =
     Array.isArray(data) && Array.isArray(data[0])
       ? (data as Project[][]).flat()
       : (data as unknown as Project[]);
 
-  // Pagination logic
   const startIndex = (currentPage - 1) * recordsPerPage;
   const currentData = normalizedData.slice(
     startIndex,
