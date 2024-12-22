@@ -1,4 +1,3 @@
-//@ts-nocheck
 import React, { useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import Table from "../../components/Table/Table";
@@ -7,20 +6,29 @@ import { Project } from "../../types/Project";
 import styles from "./Home.module.css";
 
 const Home: React.FC = () => {
-  const { data, loading, error } = useFetch<Project[]>(
+  const { data, loading, error } = useFetch<Project[] | Project[][]>(
     "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
   );
 
   const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
 
+  // Normalize the data to ensure it is a flat array of Project[]
+  const normalizedData: Project[] =
+    Array.isArray(data) && Array.isArray(data[0])
+      ? (data as Project[][]).flat()
+      : (data as unknown as Project[]);
+
   // Pagination logic
   const startIndex = (currentPage - 1) * recordsPerPage;
-  const currentData = data.slice(startIndex, startIndex + recordsPerPage);
+  const currentData = normalizedData.slice(
+    startIndex,
+    startIndex + recordsPerPage
+  );
 
   return (
     <div className={styles.container}>
-      <h1>Kickstarter Projects</h1>
+      <h1>Kickstarter Campaign Summary</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {!loading && !error && (
@@ -31,7 +39,7 @@ const Home: React.FC = () => {
           <div className={styles.paginationContainer}>
             <Pagination
               currentPage={currentPage}
-              totalRecords={data.length}
+              totalRecords={normalizedData.length}
               recordsPerPage={recordsPerPage}
               onPageChange={setCurrentPage}
             />
