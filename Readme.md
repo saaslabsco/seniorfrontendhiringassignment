@@ -52,23 +52,20 @@ Use the web API (link : https://raw.githubusercontent.com/saaslabsco/frontend-as
 ## What I Have Implemented
 
 ### Table Display:
-   •	A table displays the data fetched from the API, showing:
-	•	Serial Number.
-	•	Percentage Funded.
-	•	Amount Pledged.
-	•	Added responsive design for a better UI experience.
+   1.	A table displays the data fetched from the API, showing :- Serial Number, Percentage Funded, Amount Pledged.
+   2.	Added responsive design for a better UI experience.
 
  ### Pagination:
-  •	Implemented pagination with a maximum of 5 records per page.
-  •	Pagination includes dynamic ellipses (...) for better navigation when the page count is high.
+   1.	Implemented pagination with a maximum of 5 records per page.
+   2.	Pagination includes dynamic ellipses (...) for better navigation when the page count is high.
 
   ### Accessibility:
-  •	Added proper ARIA attributes for accessibility in the pagination component.
-  •	Ensured all buttons and table elements are keyboard-navigable.
-  •	Implemented semantic HTML for better screen reader support.
+  1.	Added proper ARIA attributes for accessibility in the pagination component.
+  2.	Ensured all buttons and table elements are keyboard-navigable.
+  3.	Implemented semantic HTML for better screen reader support.
 
   ### Error Handling:
-  •	Graceful error handling if the API fetch fails, displaying an error message to the user.
+  1.	Graceful error handling if the API fetch fails, displaying an error message to the user.
 	
  
 
