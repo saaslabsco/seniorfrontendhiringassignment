@@ -12,6 +12,7 @@ const Home = () => {
     totalPages,
     totalItems,
     handlePageChange,
+    loading, 
   } = useHomeHooks();
 
   const startItem = (currentPage - 1) * 5 + 1;
@@ -26,17 +27,21 @@ const Home = () => {
   return (
     <div className="container">
       <div className="header-wrapper">
-      <header className="header">
-        <h1>FUNDS TABLE</h1>
-      </header>
+        <header className="header">
+          <h1>FUNDS TABLE</h1>
+        </header>
       </div>
 
       <div className="table-container">
-        <Table
-          headers={TABLE_HEADERS}
-          data={currentProjects}
-          startItem={startItem}
-        />
+        {loading ? (
+          <div className="loading">Loading...</div> 
+        ) : (
+          <Table
+            headers={TABLE_HEADERS}
+            data={currentProjects}
+            startItem={startItem}
+          />
+        )}
       </div>
 
       <footer className="footer">
