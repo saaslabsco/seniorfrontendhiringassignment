@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-// import dataJson from "../frontend-assignment.json";
 import { getHighRatedKickStartersProjects } from "../services/details.services";
-import Spinner from "./common/spinner";
+import Spinner from "./common/Spinner";
 
 function Dashboard() {
   const [data, setData] = useState([]);
@@ -63,13 +62,22 @@ function Dashboard() {
             {loading ? (
               <Spinner />
             ) : (
-              data?.map((x) => (
-                <tr>
-                  <td>{x["s.no"]}</td>
-                  <td>{x["percentage.funded"]}</td>
-                  <td>${numberWithCommas(x["amt.pledged"])}</td>
-                </tr>
-              ))
+              data?.map(
+                (
+                  {
+                    "s.no": sNo,
+                    "percentage.funded": percentageFunded,
+                    "amt.pledged": amtPledged,
+                  },
+                  index
+                ) => (
+                  <tr key={index}>
+                    <td>{sNo}</td>
+                    <td>{percentageFunded}</td>
+                    <td>${numberWithCommas(amtPledged)}</td>
+                  </tr>
+                )
+              )
             )}
           </tbody>
         </table>
@@ -83,9 +91,10 @@ function Dashboard() {
           </button>
           <div className='pagination'>
             {!loading &&
-              pageRange().map((currentPage) =>
+              pageRange().map((currentPage, index) =>
                 currentPage < totalPages ? (
                   <div
+                    key={index}
                     onClick={() => setPage(currentPage)}
                     className={`pagination-box ${
                       currentPage === page ? "selected-page" : ""
@@ -105,34 +114,6 @@ function Dashboard() {
           </button>
         </div>
       </div>
-
-      {/* <div className='pagination'>
-        {pages.map((currentPage) => (
-          <div
-            onClick={() => setPage(currentPage)}
-            className={`pagination-box ${
-              currentPage === page ? "selected-page" : ""
-            }`}
-          >
-            {currentPage}
-          </div>
-        ))}
-      </div> */}
-
-      {/* <div>
-        <button>❮ prev</button>
-        {Array.from({ length: 5 }, (_, i) => i + page).map((currentPage) => (
-          <div
-            onClick={() => setPage(currentPage)}
-            className={`pagination-box ${
-              currentPage === page ? "selected-page" : ""
-            }`}
-          >
-            {currentPage}
-          </div>
-        ))}
-        <button>❮ next</button>
-      </div> */}
     </React.Fragment>
   );
 }
