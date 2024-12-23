@@ -12,9 +12,9 @@ const useHomeHooks = () => {
     try {
       const response = await axios.get(API_URL);
       const data = response.data;
-      setProjects(data);
-      setTotalPages(Math.ceil(data.length / 5)); 
-      setTotalItems(data.length);
+      setProjects(() => data);
+      setTotalPages(() => Math.ceil(data.length / 5));
+      setTotalItems(() => data.length);
     } catch (error) {
       console.error("Error while fetching data: ", error);
     }
@@ -24,13 +24,13 @@ const useHomeHooks = () => {
     fetchProjects();
   }, []);
 
-  const indexOfLastProject = currentPage * 5;
-  const indexOfFirstProject = indexOfLastProject - 5;
-  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
-
   const handlePageChange = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
+
+  const indexOfLastProject = currentPage * 5;
+  const indexOfFirstProject = indexOfLastProject - 5;
+  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject);
 
   return {
     currentProjects,
