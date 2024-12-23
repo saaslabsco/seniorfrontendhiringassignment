@@ -1,6 +1,7 @@
 import React from "react";
 import "./homeStyles.css";
 import useHomeHooks from "./useHomeHook";
+import { TABLE_HEADERS } from "./constants";
 
 const Home = () => {
   const {
@@ -16,19 +17,17 @@ const Home = () => {
 
   return (
     <div className="container">
-      {/* Header */}
       <header className="header">
-        <h1>Funds Table</h1>
+        <h1>FUNDS TABLE</h1>
       </header>
 
-      {/* Table container */}
       <div className="table-container">
         <table className="projects-table">
           <thead>
             <tr>
-              <th>S.No.</th>
-              <th>Percentage Funded</th>
-              <th>Amount Pledged</th>
+              {TABLE_HEADERS.map((header,idx) => (
+                <th key={`${header.key}_${idx}`}>{header.label}</th>
+              ))}
             </tr>
           </thead>
           <tbody>
@@ -44,30 +43,28 @@ const Home = () => {
       </div>
 
       <footer className="footer">
-  <div className="pagination">
-    {/* Previous button */}
-    <div className="pagination-buttons">
-      <button
-        onClick={() => handlePageChange(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-        Previous
-      </button>
-    </div>
+        <div className="pagination">
+          <div className="pagination-buttons">
+            <button
+              onClick={() => handlePageChange(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+              Previous
+            </button>
+          </div>
 
-    <span>{`${startItem}-${endItem} of ${totalItems}`}</span>
+          <span>{`${startItem}-${endItem} of ${totalItems}`}</span>
 
-    <div className="pagination-buttons">
-      <button
-        onClick={() => handlePageChange(currentPage + 1)}
-        disabled={currentPage === totalPages}
-      >
-        Next
-      </button>
-    </div>
-  </div>
-</footer>
-
+          <div className="pagination-buttons">
+            <button
+              onClick={() => handlePageChange(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
