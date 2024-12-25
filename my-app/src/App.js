@@ -16,7 +16,7 @@ function App() {
         const response = await axios.get(
           "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
         );
-        setProjects(response.data);
+        setProjects(response?.data || []);
       } catch (err) {
         setError("Failed to fetch projects. Please try again later.");
       }
@@ -71,7 +71,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {currentProjects.map((project) => (
+            {currentProjects?.map((project) => (
               <tr key={project["s.no"]}>
                 <td>{project["s.no"] + 1}</td>
                 <td>{project["percentage.funded"]}%</td>
