@@ -1,18 +1,18 @@
-import styles from "@/styles/Home.module.css";
-import { useEffect, useState } from "react";
+import styles from '@/styles/Home.module.css';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [listData, setListData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [visiblePages, setVisiblePages] = useState(6);
-  const [sortBy, setSortBy] = useState("s.no");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortBy, setSortBy] = useState('s.no');
+  const [sortOrder, setSortOrder] = useState('asc');
   const itemsPerPage = 5;
 
   const fetchData = async () => {
     try {
       const response = await fetch(
-        "https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json"
+        'https://raw.githubusercontent.com/saaslabsco/frontend-assignment/refs/heads/master/frontend-assignment.json'
       );
 
       if (!response.ok) {
@@ -22,7 +22,7 @@ export default function Home() {
       const data = await response.json();
       setListData(data);
     } catch (error) {
-      console.error("Failed to fetch data:", error);
+      console.error('Failed to fetch data:', error);
     }
   };
 
@@ -42,9 +42,9 @@ export default function Home() {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function Home() {
       const aValue = a[sortBy];
       const bValue = b[sortBy];
 
-      if (sortOrder === "asc") {
+      if (sortOrder === 'asc') {
         return aValue > bValue ? 1 : aValue < bValue ? -1 : 0;
       } else {
         return aValue < bValue ? 1 : aValue > bValue ? -1 : 0;
@@ -86,16 +86,16 @@ export default function Home() {
 
   const handleSortChange = (criteria) => {
     if (sortBy === criteria) {
-      setSortOrder(sortOrder === "asc" ? "desc" : "asc");
+      setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
       setSortBy(criteria);
-      setSortOrder("asc");
+      setSortOrder('asc');
     }
   };
 
   const getSortArrow = (column) => {
     if (sortBy !== column) return null;
-    return sortOrder === "asc" ? "↑" : "↓";
+    return sortOrder === 'asc' ? '↑' : '↓';
   };
 
   return (
@@ -104,26 +104,34 @@ export default function Home() {
         {listData.length > 0 ? (
           <>
             <div className={styles.headerSection}>
-              <h5 onClick={() => handleSortChange("s.no")}>
-                S.No {getSortArrow("s.no")}
-              </h5>
-              <h5 onClick={() => handleSortChange("percentage.funded")}>
-                Percentage funded {getSortArrow("percentage.funded")}
+              <h5
+                onClick={() => handleSortChange('s.no')}
+                className={styles.subHeading}
+              >
+                S.No {getSortArrow('s.no')}
               </h5>
               <h5
-                className={styles.textRight}
-                onClick={() => handleSortChange("amt.pledged")}
+                onClick={() => handleSortChange('percentage.funded')}
+                className={styles.subHeading}
               >
-                Amount pledged {getSortArrow("amt.pledged")}
+                Percentage funded {getSortArrow('percentage.funded')}
+              </h5>
+              <h5
+                className={`${styles.textRight} ${styles.subHeading}`}
+                onClick={() => handleSortChange('amt.pledged')}
+              >
+                Amount pledged {getSortArrow('amt.pledged')}
               </h5>
             </div>
             <div className={styles.listSection}>
               {currentData.map((element, index) => (
                 <div key={index} className={styles.listItem}>
-                  <h6>{element["s.no"]}</h6>
-                  <h6>{element["percentage.funded"]}%</h6>
-                  <h6 className={styles.textRight}>
-                    ₹{element["amt.pledged"]}
+                  <h6 className={styles.para}>{element['s.no']}</h6>
+                  <h6 className={styles.para}>
+                    {element['percentage.funded']}%
+                  </h6>
+                  <h6 className={`${styles.textRight} ${styles.para}`}>
+                    ₹{element['amt.pledged']}
                   </h6>
                 </div>
               ))}
@@ -139,7 +147,7 @@ export default function Home() {
             {visiblePageNumbers.map((pageNumber) => (
               <button
                 key={pageNumber}
-                className={currentPage === pageNumber ? styles.activePage : ""}
+                className={currentPage === pageNumber ? styles.activePage : ''}
                 onClick={() => goToPage(pageNumber)}
               >
                 {pageNumber}

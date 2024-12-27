@@ -21,11 +21,9 @@
   grid-template-columns: 80px 1fr 1fr;
   border-bottom: 1px solid #d6d6d6;
   background-color: #f6f6f6;
-
-
 }
 
-h5 {
+.subHeading {
   padding: 10px;
   font-weight: 600;
   color: #2b2b2b;
@@ -37,11 +35,9 @@ h5 {
   grid-template-columns: 80px 1fr 1fr;
   border-bottom: 1px solid #d6d6d6;
   cursor: pointer;
-
-
 }
 
-h6 {
+.para {
   padding: 10px;
   color: #2b2b2b;
 }
