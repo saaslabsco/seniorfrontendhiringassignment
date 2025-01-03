@@ -15,7 +15,7 @@ const CustomTable = ({ data }) => {
           <tr key={project["s.no"]}>
             <td>{project["s.no"]}</td>
             <td>{`${project["percentage.funded"]}%`}</td>
-            <td>{project["amt.pledged"]}</td>
+            <td>{`Rs.${project["amt.pledged"]} /-`}</td>
           </tr>
         ))}
       </tbody>
