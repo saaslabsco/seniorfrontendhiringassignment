@@ -49,3 +49,24 @@ Use the web API (link : https://raw.githubusercontent.com/saaslabsco/frontend-as
 
 1. Result on platforms like codesandbox, replit are not accepted. 
 1. Private unaccessible links will lead to rejection.
+
+## What I Have Implemented
+
+### Table Display:
+   1.	A table displays the data fetched from the API, showing :- Serial Number, Percentage Funded, Amount Pledged.
+   2.	Added responsive design for a better UI experience.
+
+ ### Pagination:
+   1.	Implemented pagination with a maximum of 5 records per page.
+   2.	Pagination includes dynamic ellipses (...) for better navigation when the page count is high.
+
+  ### Accessibility:
+  1.	Added proper ARIA attributes for accessibility in the pagination component.
+  2.	Ensured all buttons and table elements are keyboard-navigable.
+  3.	Implemented semantic HTML for better screen reader support.
+
+  ### Error Handling:
+  1.	Graceful error handling if the API fetch fails, displaying an error message to the user.
+	
+ 
+
