@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
+import Pagination from '../Pagination/Pagination';
+
 import { getKickStarterData } from './kickStarter.service';
 
 import './kickStarter.css';
-import Pagination from '../Pagination/Pagination';
 
 const KickStarter = () => {
   const [kickStarterData, setKickStarterData] = useState([]);
@@ -25,6 +26,7 @@ const KickStarter = () => {
 
   return (
     <div className='container'>
+      <h1 className='kick-starter-title' aria-label='kickstarter-title'>KickStarter Projects</h1>
       {paginatedData.length > 0 &&
         <div className="kick-starter-container" aria-label='kickstarter-container' role='table'>
           <div className="kick-starter-header" aria-label='kickstarter-header' role='row'>

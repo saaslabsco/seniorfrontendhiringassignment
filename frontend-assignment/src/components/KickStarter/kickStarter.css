@@ -54,3 +54,9 @@
     height: 100%;
     width: 100%;
 }
+
+.kick-starter-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #212529;
+}
