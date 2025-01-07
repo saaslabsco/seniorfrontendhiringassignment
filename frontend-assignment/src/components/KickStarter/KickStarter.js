@@ -16,7 +16,7 @@ const KickStarter = () => {
 
   const onInit = async () => {
     const data = await getKickStarterData();
-    setKickStarterData(data.slice(0, 30));
+    setKickStarterData(data);
     setPaginatedData(data.slice(0, 5));
   }
 
