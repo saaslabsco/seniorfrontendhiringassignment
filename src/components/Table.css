@@ -1,0 +1,72 @@
+.glow {
+    text-shadow: 0 0 10px #ff5000, 0 0 20px #ff4800, 0 0 30px #ff7b00, 0 0 40px #ff0000, 0 0 50px #ff8300, 0 0 60px #ff9000, 0 0 70px #ff7c00;
+}
+.glow.error, .glow.loading{
+    margin-top: 75px;
+}
+.catalog-container {
+    max-width: 90%;
+    margin: 60px auto;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+thead {
+    background-color: #007F65;
+    color: white;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+    background-color: #d9f7d9;
+}
+
+tbody td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    color: #007F65;
+}
+
+tbody tr td {
+    text-align: left;
+}
+
+.catalog-table{
+    min-height: 315px;
+}
+
+@media (min-width: 1024px) {
+    .catalog-container {
+        max-width: 1000px;
+        min-width: 930px;
+    }
+    table {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 767px) {
+    table {
+        font-size: 0.9rem;
+    }
+    thead th, tbody td {
+        padding: 10px;
+    }
+}

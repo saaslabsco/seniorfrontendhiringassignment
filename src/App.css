@@ -1,0 +1,54 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
+  height: 100%;
+}
+
+.catalog-container {
+  will-change: filter;
+  transition: filter 300ms;
+}
+.catalog-container:hover {
+  filter: drop-shadow(0 0 2em #ff9d6485);
+}
+.catalog-container.react:hover {
+  filter: drop-shadow(0 0 2em #ff9d6485);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.catalog-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+span.disclaimer {
+  font-size: 12px;
+  letter-spacing: 1.2px;
+  margin-top: 60px;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #363636;
+  padding: 15px;
+  width: 100%;
+  border-radius: 9px;
+}
