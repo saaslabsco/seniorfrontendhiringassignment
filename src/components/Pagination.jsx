@@ -2,11 +2,6 @@ import React from "react";
 import "../styles/Pagination.css";
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
-  const pageNumbers = [];
-  for (let i = 1; i <= totalPages; i++) {
-    pageNumbers.push(i);
-  }
-
   const handleClick = (pageNumber) => {
     if (pageNumber !== currentPage) {
       onPageChange(pageNumber);
@@ -25,18 +20,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           &laquo;
         </button>
 
-        {pageNumbers.map((number) => (
-          <button
-            key={number}
-            className={`pagination-button ${
-              currentPage === number ? "active" : ""
-            }`}
-            onClick={() => handleClick(number)}
-            aria-label={`Page ${number}`}
-          >
-            {number}
-          </button>
-        ))}
+        <span className="pagination-current">{currentPage}</span>
 
         <button
           className="pagination-button"
