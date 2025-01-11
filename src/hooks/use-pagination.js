@@ -32,8 +32,21 @@ const usePagination = (url, pageSize, pageBoundary = 5) => {
   const getPagesToRender = () => {
     const half = Math.floor(pageBoundary / 2);
     const pages = [];
-    const startPage = Math.max(2, currentPage - half);
-    const endPage = Math.min(totalPages - 1, currentPage + half);
+
+
+    let leftElements;
+    if (currentPage === totalPages) {
+      leftElements = 4; // Show 4 elements on the left when on page 21
+    } else if (currentPage === totalPages - 1) {
+      leftElements = 3; // Show 3 elements on the left when on page 20
+    } else {
+      // For other pages, show the usual number of elements on the left
+      leftElements = Math.min(currentPage - 1, half);
+    }
+
+    const rightElements = (half * 2) - leftElements;
+    let startPage = Math.max(2, currentPage - leftElements);
+    let endPage = Math.min(totalPages - 1, currentPage + rightElements);
 
     pages.push({ page: 1, type: 'page' });
 
