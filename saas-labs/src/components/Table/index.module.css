@@ -1,0 +1,59 @@
+.tableWrapper {
+  table {
+    --table-border-color: #dbd8d8;
+    --_table-cell-padding: var(--table-cell-padding);
+
+    border-collapse: collapse;
+
+    td,
+    th {
+      padding: var(--_table-cell-padding);
+      border: 1px solid var(--table-border-color);
+    }
+
+    th {
+      background-color: var(--grey-color);
+    }
+
+    td.noDataCell {
+      text-align: center;
+      height: 200px;
+    }
+
+    &.table-small {
+      --table-cell-padding: 8px;
+    }
+
+    &.table-default {
+      --table-cell-padding: 16px;
+    }
+
+    &.table-large {
+      --table-cell-padding: 24px;
+    }
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    padding: 12px 0;
+  }
+
+  .paginationButton {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: var(--grey-color);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
