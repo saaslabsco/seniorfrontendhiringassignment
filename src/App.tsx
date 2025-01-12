@@ -28,7 +28,12 @@ function App() {
         <h1>Top Rated Kickstarter Projects</h1>
       </header>
       <main className="app-main">
-        <Table data={tableData} columns={TABLE_COLUMNS} loading={loading} />
+        <Table
+          data={tableData}
+          columns={TABLE_COLUMNS}
+          loading={loading}
+          pagination={{ pageSize: 5 }}
+        />
       </main>
       <footer className="app-footer">
         <span>Submitted by</span>

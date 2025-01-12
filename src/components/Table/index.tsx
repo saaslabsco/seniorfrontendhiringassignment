@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import styles from "@/components/Table/index.module.css";
-import { getPaginationDataIndices, getTableClass } from "@/components/utils";
+import {
+  getPaginationDataIndices,
+  getTableClass,
+} from "@/components/Table/utils";
 import { TableColumn, TableData, TablePagination, TableSize } from "TableTypes";
 
 interface TableProps {
@@ -17,8 +20,8 @@ const Table: React.FC<TableProps> = ({
   data = [],
   size = "default",
   loading = false,
-  style,
-  pagination = { pageSize: 5 },
+  style = {},
+  pagination = { pageSize: 10 },
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
