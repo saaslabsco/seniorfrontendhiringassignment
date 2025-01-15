@@ -64,7 +64,7 @@ export default function Home() {
 
   return (
     <div className="max-w-xl m-auto h-screen flex flex-col justify-center">
-      <h1 className="font-semibold text-2xl">Table | Assignment</h1>
+      <h1 className="font-semibold text-2xl">Table | SaasLabs</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
