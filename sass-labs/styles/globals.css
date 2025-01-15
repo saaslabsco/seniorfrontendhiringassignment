@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* General Styles */
+.table-container {
+  margin: 16px 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0;
+  font-size: 16px;
+}
+
+/* Header Styles */
+thead {
+  background-color: #f4f4f4;
+}
+
+th {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  font-weight: bold;
+}
+
+/* Body Styles */
+td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Row Hover */
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Pagination */
+.table-pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.table-pagination button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.table-pagination button:disabled {
+  background-color: #d6d6d6;
+  cursor: not-allowed;
+}
+
+.table-pagination span {
+  font-size: 14px;
+}
+
+button{
+  cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  table {
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .table-pagination button {
+    padding: 6px 12px;
+  }
+
+  .table-pagination span {
+    font-size: 12px;
+  }
+}
