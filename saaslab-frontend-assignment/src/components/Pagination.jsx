@@ -1,13 +1,7 @@
-import { generatePageNumber } from '../util';
-import { visiblePageCount } from '../../constant';
+import { calcStartEndPageRange, generatePageNumber } from '../util';
 
 function Pagination({ totalPages, currentPage, onPageChange }) {
-  const startPage = Math.max(1, currentPage - Math.floor(visiblePageCount / 2));
-  const endPage = Math.min(totalPages, startPage + visiblePageCount - 1);
-
-  const adjustedStartPage = Math.max(1, endPage - visiblePageCount + 1);
-
-  const pageNumbers = generatePageNumber(adjustedStartPage, endPage);
+  const pageRange = calcStartEndPageRange(totalPages, currentPage);
 
   const handlePageClick = (page) => {
     if (page !== currentPage) {
@@ -30,7 +24,7 @@ function Pagination({ totalPages, currentPage, onPageChange }) {
         Previous
       </button>
 
-      {pageNumbers.map((page) => (
+      {pageRange.map((page) => (
         <button
           className={`pagination-button ${currentPage === page ? 'active' : ''}`}
           key={page}
