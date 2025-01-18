@@ -1,0 +1,26 @@
+.table {
+    border-collapse: collapse;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.tableContainer {
+    min-height: 135px;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.td {
+    border: 1px solid;
+}
+
+.header {
+    text-align: center;
+}
+
+.currentPage {
+    background-color: aquamarine;
+}
