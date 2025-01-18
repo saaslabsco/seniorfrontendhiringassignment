@@ -1,0 +1,23 @@
+{
+  "name": "saas-labs",
+  "version": "1.0.0",
+  "description": "This is saas labs assignment",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "author": "prikshit8",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.10.2",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browsersList": [
+    "last 2 version"
+  ]
+}
