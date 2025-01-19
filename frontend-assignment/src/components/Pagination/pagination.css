@@ -1,0 +1,66 @@
+.pagination-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 0;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    background-color: #f3f4f6;
+    color: #4b5563;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+    transform: translateY(-1px);
+}
+
+.number-btn {
+    border-radius: 8px;
+    padding: 0;
+}
+
+.selected-btn {
+    background-color: #3b82f6;
+    color: white;
+    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.2);
+}
+
+.selected-btn:hover {
+    background-color: #2563eb;
+    color: white;
+    transform: translateY(-1px);
+}
+
+.first-page-btn,
+.last-page-btn {
+    font-weight: 600;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+}
+
+.first-page-btn:hover,
+.last-page-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    transform: none;
+}
