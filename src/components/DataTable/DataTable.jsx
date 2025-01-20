@@ -45,7 +45,7 @@ const PaginationControls = ({ page, totalPages, pageSize, onPageChange, onPageSi
   <div data-testid={TEST_IDS.PAGINATION_CONTROLS} className="pagination-controls">
     <div data-testid={TEST_IDS.PAGINATION_SIZE} className="page-size">
       <select
-        aria-label="Page size"
+        aria-label="Select no of rows per page"
         value={pageSize}
         onChange={(e) => onPageSizeChange(Number(e.target.value))}
         id="pageSizeSelect"
@@ -62,7 +62,7 @@ const PaginationControls = ({ page, totalPages, pageSize, onPageChange, onPageSi
         className="pagination-button"
         disabled={page === 1}
         onClick={() => onPageChange(page - 1)}
-        aria-label="Previous Page"
+        aria-label="Go to Previous Page"
         data-testid={TEST_IDS.BUTTON_PREV}
       >
         {ACTION_BUTTONS.PREVIOUS}
@@ -72,7 +72,7 @@ const PaginationControls = ({ page, totalPages, pageSize, onPageChange, onPageSi
         className="pagination-button"
         disabled={page === totalPages}
         onClick={() => onPageChange(page + 1)}
-        aria-label="Next Page"
+        aria-label="Go to Next Page"
         data-testid={TEST_IDS.BUTTON_NEXT}
       >
         {ACTION_BUTTONS.NEXT}
