@@ -1,29 +1,43 @@
+:root {
+    --font-family: Arial, sans-serif;
+    --background-color: #f0f0f0;
+    --primary-color: #e57a44;
+    --border-color: #ddd;
+    --text-color: #363732;
+    --table-background: #f5efed;
+    --hover-border-color: #e57a44;
+    --disabled-color: #ccc;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: var(--background-color);
 }
+
+/* App Container */
 .app {
     text-align: center;
     margin-top: 50px;
 }
 
+/* Table Styles */
 table {
 border-collapse: collapse;
 font-size: 14px;
-background: #F5EFED;
+background: var(--table-background);
 border-radius: 8px;
 }
 
 thead th {
-    color: #363732;
+    color: var(--text-color);
 }
 
 td,
 th {
 padding: 14px;
-border-bottom: 1px solid #ddd;
+border-bottom: 1px solid var(--border-color);
 text-align: start;
 }
 
@@ -41,8 +55,9 @@ padding: 0;
 /* Add borders to table, rows, and cells */
 table, th, td {
     border: 1px solid #ddd; /* Light gray border */
-  }
+}
 
+/* Data Table Container */
 .data-table-container{
     display: flex;
     justify-content: center;
@@ -68,26 +83,27 @@ gap: 8px;
     font-size: 14px;
     border: none;
     border-radius: 4px;
-    background-color: #E57A44;
+    background-color: var(--primary-color);
     color: white;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
 .pagination-button:disabled {
-    background-color: #ccc;
+    background-color: var(--disabled-color);
     cursor: not-allowed;
 }
 
 .pagination-button:hover:not(:disabled) {
-    background-color: #E57A44;
+    background-color:  var(--primary-color);
 }
 
+/* Page Size Selector */
 .page-size select {
     padding: 10px 18px;
     font-size: 16px;
     color: #333;
-    border: 1px solid #ccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
     appearance: none;
     cursor: pointer;
@@ -98,11 +114,8 @@ gap: 8px;
     background-size: 12px 12px;
 }
 
-.page-size select:focus {
+.page-size select:focus,
+.page-size select:hover {
     outline: none;
-    border-color: #E57A44;
-  }
-
-.page-size  select:hover {
-    border-color: #E57A44;
-  }
+    border-color: var(--hover-border-color);
+}

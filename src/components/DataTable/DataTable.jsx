@@ -8,7 +8,7 @@ import ResultNotFound from '../ResultNotFound';
 import ErrorPage from '../ErrorPage';
 
 //Constants
-import { API_URL, ACTION_BUTTONS, PROJECT_TITLE, TEST_IDS, INVALID_URL, PAGE_LIMITS } from './Constants';
+import { API_URL, ACTION_BUTTONS, PROJECT_TITLE, TEST_IDS, PAGE_LIMITS } from './Constants';
 
 //Helpers
 import { paginateData, formatPageInfo } from "./helpers";
@@ -102,7 +102,6 @@ const DataTable = () => {
           }
           const data = await response.json();
           setProjects(data);
-          //setProjects([]); // to check if data is empty
       } catch (error) {
           setError(true);
       } finally{
