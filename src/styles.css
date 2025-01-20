@@ -1,0 +1,121 @@
+:root {
+    --font-family: Arial, sans-serif;
+    --background-color: #f0f0f0;
+    --primary-color: #e57a44;
+    --border-color: #ddd;
+    --text-color: #363732;
+    --table-background: #f5efed;
+    --hover-border-color: #e57a44;
+    --disabled-color: #ccc;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+/* App Container */
+.app {
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* Table Styles */
+table {
+border-collapse: collapse;
+font-size: 14px;
+background: var(--table-background);
+border-radius: 8px;
+}
+
+thead th {
+    color: var(--text-color);
+}
+
+td,
+th {
+padding: 14px;
+border-bottom: 1px solid var(--border-color);
+text-align: start;
+}
+
+th {
+vertical-align: top;
+}
+
+th button {
+background: none;
+border: none;
+cursor: pointer;
+padding: 0;
+}
+
+/* Add borders to table, rows, and cells */
+table, th, td {
+    border: 1px solid #ddd; /* Light gray border */
+}
+
+/* Data Table Container */
+.data-table-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.pagination-controls {
+display: flex;
+font-size: 14px;
+gap: 12px;
+justify-content: center;
+margin-top: 16px;
+}
+
+.pagination {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+
+.pagination-button {
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination-button:disabled {
+    background-color: var(--disabled-color);
+    cursor: not-allowed;
+}
+
+.pagination-button:hover:not(:disabled) {
+    background-color:  var(--primary-color);
+}
+
+/* Page Size Selector */
+.page-size select {
+    padding: 10px 18px;
+    font-size: 16px;
+    color: #333;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    appearance: none;
+    cursor: pointer;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 12px 12px;
+}
+
+.page-size select:focus,
+.page-size select:hover {
+    outline: none;
+    border-color: var(--hover-border-color);
+}
