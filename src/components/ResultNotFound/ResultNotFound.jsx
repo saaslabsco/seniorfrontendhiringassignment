@@ -1,8 +1,11 @@
 import React from 'react';
 
+//constants
+import { TEST_IDS, NO_RESULT_FOUND } from '../DataTable/Constants';
+
 const ResultNotFound = () => {
     return (
-        <div> Sorry ! No Results are found </div>
+        <div data-testid={TEST_IDS.NO_RESULT}> {NO_RESULT_FOUND} </div>
     )
 }
 

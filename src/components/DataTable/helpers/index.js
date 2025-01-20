@@ -8,4 +8,8 @@ export const paginateData = (data,
       pageItems: data.slice(start, end),
       totalPages: Math.ceil(data.length / pageSize),
     };
+};
+
+export const formatPageInfo = (page, totalPages) => {
+  return `Page ${page} of ${totalPages}`;
 }
