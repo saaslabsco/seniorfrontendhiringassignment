@@ -1,0 +1,29 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(12px);
+    transition: background-color 0.3s;
+  }
+  
+  .pagination .active {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    color: #000;
+  }
+  
+  .pagination .ellipsis {
+    font-size: 18px;
+    color: #fff;
+  }
+
+  .pagination button:disabled {
+    cursor: not-allowed;
+  }
