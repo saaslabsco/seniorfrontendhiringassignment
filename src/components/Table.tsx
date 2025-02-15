@@ -29,13 +29,13 @@ const Table = ({ data }: { data: PropsType[] }) => {
     const valueA = a[sortKey];
     const valueB = b[sortKey];
 
-    return sortOrder === "asc"
-      ? valueA > valueB
-        ? 1
-        : -1
-      : valueA < valueB
-      ? 1
-      : -1;
+    if (typeof valueA === "string" && typeof valueB === "string") {
+      return sortOrder === "asc"
+        ? valueA.localeCompare(valueB)
+        : valueB.localeCompare(valueA);
+    }
+
+    return sortOrder === "asc" ? +valueA - +valueB : +valueB - +valueA;
   });
 
   // Pagination logic
@@ -55,8 +55,8 @@ const Table = ({ data }: { data: PropsType[] }) => {
     <div className="table-wrapper">
       {/* Sorting Dropdown */}
       <div className="sort-dropdown">
-        <label>Sort By:</label>
-        <select onChange={handleSortChange}>
+        <label htmlFor="sort-select">Sort By:</label>
+        <select id="sort-select" onChange={handleSortChange} aria-label="Sort table">
           <option value="sNo_asc">S.No - Ascending</option>
           <option value="sNo_desc">S.No - Descending</option>
           <option value="percentageFunded_asc">Percentage Funded - Ascending</option>
@@ -68,20 +68,20 @@ const Table = ({ data }: { data: PropsType[] }) => {
 
       {/* Table */}
       <div className="table-container">
-        <table className="styled-table">
+        <table className="styled-table" role="table">
           <thead>
-            <tr>
-              <th>S.No.</th>
-              <th>Percentage Funded</th>
-              <th>Amount Pledged</th>
+            <tr role="row">
+              <th scope="col">S.No.</th>
+              <th scope="col">% Funded</th>
+              <th scope="col">Amount Pledged</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody aria-live="polite">
             {currentRecords.map((item) => (
-              <tr key={item.sNo}>
-                <td>{item.sNo}</td>
-                <td>{item.percentageFunded}%</td>
-                <td>${item.amtPledged.toLocaleString()}</td>
+              <tr key={item.sNo} role="row">
+                <td role="cell">{item.sNo}</td>
+                <td role="cell">{item.percentageFunded}%</td>
+                <td role="cell">${item.amtPledged.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
@@ -90,10 +90,18 @@ const Table = ({ data }: { data: PropsType[] }) => {
 
       {/* Pagination */}
       <div className="pagination">
-        <button onClick={() => setCurrentPage(1)} disabled={currentPage === 1}>
+        <button 
+          onClick={() => setCurrentPage(1)} 
+          disabled={currentPage === 1}
+          aria-label="Go to first page"
+        >
           ⏮ First
         </button>
-        <button onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+        <button 
+          onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))} 
+          disabled={currentPage === 1}
+          aria-label="Go to previous page"
+        >
           ◀ Prev
         </button>
         <input
@@ -105,11 +113,20 @@ const Table = ({ data }: { data: PropsType[] }) => {
           }}
           min={1}
           max={totalPages}
+          aria-label="Current page number"
         />
-        <button onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+        <button 
+          onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} 
+          disabled={currentPage === totalPages}
+          aria-label="Go to next page"
+        >
           Next ▶
         </button>
-        <button onClick={() => setCurrentPage(totalPages)} disabled={currentPage === totalPages}>
+        <button 
+          onClick={() => setCurrentPage(totalPages)} 
+          disabled={currentPage === totalPages}
+          aria-label="Go to last page"
+        >
           ⏭ Last
         </button>
       </div>
