@@ -42,7 +42,7 @@ describe("Table Component", () => {
     render(<Table data={mockData} />);
     
     expect(screen.getByText("S.No.")).toBeInTheDocument();
-    expect(screen.getByText("% Funded")).toBeInTheDocument();
+    expect(screen.getByText("Percentage Funded")).toBeInTheDocument();
     expect(screen.getByText("Amount Pledged")).toBeInTheDocument();
 
     expect(screen.getByText("1")).toBeInTheDocument();

@@ -19,7 +19,8 @@ type PropsType = {
 };
 
 const Table = ({ data }: { data: PropsType[] }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+
+ const [currentPage, setCurrentPage] = useState(1);
   const recordsPerPage = 5;
   const [sortKey, setSortKey] = useState<keyof PropsType>("sNo");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
@@ -72,7 +73,7 @@ const Table = ({ data }: { data: PropsType[] }) => {
           <thead>
             <tr role="row">
               <th scope="col">S.No.</th>
-              <th scope="col">% Funded</th>
+              <th scope="col">Percentage Funded</th>
               <th scope="col">Amount Pledged</th>
             </tr>
           </thead>
@@ -81,7 +82,7 @@ const Table = ({ data }: { data: PropsType[] }) => {
               <tr key={item.sNo} role="row">
                 <td role="cell">{item.sNo}</td>
                 <td role="cell">{item.percentageFunded}%</td>
-                <td role="cell">${item.amtPledged.toLocaleString()}</td>
+                <td role="cell">${item.amtPledged?.toLocaleString()}</td>
               </tr>
             ))}
           </tbody>
