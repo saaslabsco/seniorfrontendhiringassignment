@@ -24,6 +24,6 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "jest.config.cjs", "babel.config.js"]
+  "include": ["src", "jest.config.cjs", "babel.config.js", "jest.setup.js", "jest.config.ts"]
 
 }

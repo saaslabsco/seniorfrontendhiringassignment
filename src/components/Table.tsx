@@ -107,15 +107,22 @@ const Table = ({ data }: { data: PropsType[] }) => {
         </button>
         <input
           type="number"
-          value={currentPage}
+          value={currentPage > 1 ? currentPage : ""}
           onChange={(e) => {
             let page = Number(e.target.value);
-            if (page >= 1 && page <= totalPages) setCurrentPage(page);
+            if (!e.target.value) {
+              setCurrentPage(1); // Keep track internally but let input appear empty
+            } else if (page >= 1 && page <= totalPages) {
+              setCurrentPage(page);
+            }
           }}
+          placeholder="1" // Show 1 as default when input is empty
           min={1}
           max={totalPages}
           aria-label="Current page number"
         />
+
+
         <button 
           onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))} 
           disabled={currentPage === totalPages}
