@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../components/Table.css";
 
 type PropsType = {
@@ -20,10 +20,15 @@ type PropsType = {
 
 const Table = ({ data }: { data: PropsType[] }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [inputValue, setInputValue] = useState(""); // Separate state for input field
+  const [inputValue, setInputValue] = useState("1"); // Sync input with page
   const recordsPerPage = 5;
   const [sortKey, setSortKey] = useState<keyof PropsType>("sNo");
   const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc");
+
+  // Sync input field when currentPage changes
+  useEffect(() => {
+    setInputValue(currentPage.toString());
+  }, [currentPage]);
 
   // Sorting logic
   const sortedData = [...data].sort((a, b) => {
@@ -52,18 +57,17 @@ const Table = ({ data }: { data: PropsType[] }) => {
     setSortOrder(order as "asc" | "desc");
   };
 
-  // Handle pagination input change
+  // Handle page number input
   const handlePageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let value = e.target.value;
+    setInputValue(value); // Allow free typing
 
     if (value === "") {
-      setInputValue(""); // Keep input empty
-      setCurrentPage(1); // Internally set page to 1
+      setCurrentPage(1); // Default to 1 if cleared
     } else {
       let page = Number(value);
       if (!isNaN(page) && page >= 1 && page <= totalPages) {
-        setInputValue(value); // Store user input normally
-        setCurrentPage(page); // Update current page
+        setCurrentPage(page);
       }
     }
   };
@@ -124,9 +128,9 @@ const Table = ({ data }: { data: PropsType[] }) => {
 
         <input
           type="number"
-          value={inputValue || ""}
+          value={inputValue}
           onChange={handlePageChange}
-          placeholder="1" // Show placeholder when input is empty
+          placeholder="1"
           min={1}
           max={totalPages}
           aria-label="Current page number"
