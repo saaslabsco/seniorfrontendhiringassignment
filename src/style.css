@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0;
+  border: solid thin #dadada;
+}
+th {
+  padding: 10px 20px;
+  text-align: center;
+
+  border-right: solid thin #dadada;
+}
+.leftclick: {
+  margin-left: 115px;
+}
+.leftclick,
+.rightclick {
+  padding: 10px;
+  padding-bottom: 20px;
+}
+.leftbackarrow {
+  background-image: url("images/leftback.png");
+  height: 100vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+tr {
+  display: table-row;
+}
+
+td {
+  vertical-align: middle;
+  display: table-cell;
+  padding: 5px;
+  margin: 5px;
+}
+body {
+  font-family: sans-serif;
+  margin: 20px;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+h4 {
+  margin-top: 0;
+  font-size: 16px;
+}
+
+h5 {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+h6 {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+code {
+  font-size: 1.2em;
+}
+
+ul {
+  padding-inline-start: 20px;
+}
